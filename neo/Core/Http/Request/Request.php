@@ -450,4 +450,26 @@ class Request
         return $path . '?' . implode('&', $pairs);
     }
 
+    public function getScheme(): string
+    {
+        return (($this->server['HTTPS'] ?? 'off') !== 'off') ? 'https' : 'http';
+    }
+
+    public function getHost(): string
+    {
+        return (string)($this->server['HTTP_HOST'] ?? 'localhost');
+    }
+
+    public function getBaseUrl(): string
+    {
+        return $this->getScheme() . '://' . $this->getHost();
+    }
+
+    public function getAbsoluteUrl(?string $path = null): string
+    {
+        $target = $path ?? $this->getFullUrl();
+
+        return $this->getBaseUrl() . $target;
+    }
+
 }
