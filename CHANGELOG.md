@@ -1,3 +1,6 @@
+v4.49.0
+- feat: add getScheme, getHost, getBaseUrl and getAbsoluteUrl helpers (96f5f16)
+
 v4.48.0
 - refactor: use FileHelper for extension extraction and validation in UploaderManager (5c49f01)
 - feat: add FileSizeHelper for human-readable byte formatting (b92ab27)
